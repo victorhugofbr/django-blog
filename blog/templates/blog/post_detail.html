@@ -1,0 +1,19 @@
+{% extends "blog\base.html" %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p><strong>Autor:</strong> {{ post.author.username }}</p>
+    <p><strong>Data:</strong> {{ post.created_at }}</p>
+    <div>
+        {{ post.content }}
+    </div>
+
+    <h3>Comentários:</h3>
+    <ul>
+        {% for comment in post.comments.all %}
+            <li>{{ comment.author.username }}: {{ comment.content }}</li>
+        {% empty %}
+            <li>Nenhum comentário ainda.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
