@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
+
 
 #Modelo de Categoria:
 class Category(models.Model):
@@ -17,13 +19,14 @@ class Post(models.Model):
     category: Relaciona o post a uma categoria, podendo ser nulo ou opcional(daí o null=True e Blank= True)
     created_at e updated_at: Datas automáticas de criação e última atualização.
     """
-    title = models.CharField(max_length=20) #Título do post
-    content = models.TextField() #Conteúdo do post
+    title = models.CharField(max_length=200) #Título do post
+    content = RichTextField()  # Campo com CKEditor
     autor = models.ForeignKey(User,on_delete=models.CASCADE) #Autor do post(Usuário do Django)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)  #Categoria do post
     tags = models.CharField(max_length=100,blank=True) #Tags do post
     create_at = models.DateTimeField(auto_now_add=True) #Data de criação
     updated_at = models.DateTimeField(auto_now=True)  #Data de atualização
+    image = models.ImageField(upload_to='post_images/', null=True, blank=True)  # Aqui, a imagem será opcional (null=True, blank=True), e o diretório onde as imagens serão salvas será post_images/.
 
     def __str__(self):
         return self.title

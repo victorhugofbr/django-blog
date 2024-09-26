@@ -1,0 +1,13 @@
+{% extends "blog\base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <h1>Criar Novo Post</h1>
+
+    <!-- Renderizar formulário usando Bootstrap -->
+    <form method="post" enctype="multipart/form-data">  <!-- Necessário para uploads -->
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Publicar</button>
+    </form>
+{% endblock %}

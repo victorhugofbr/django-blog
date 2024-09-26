@@ -1,12 +1,16 @@
 {% extends "blog\base.html" %}
+{% load bootstrap4 %}
 
 {% block content %}
     <h1>Posts Recentes</h1>
+
+    <a href="{% url 'post_create' %}">Criar Novo Post</a>  <!-- Link para criar um novo post -->
+
     <ul>
         {% for post in posts %}
             <li>
-                <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a> 
-                - {{ post.created_at }}
+                <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+                - {{ post.create_at }}
             </li>
         {% empty %}
             <li>Nenhum post encontrado.</li>
