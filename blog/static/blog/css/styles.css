@@ -1,0 +1,45 @@
+qq <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 700
+
+.fredoka-<uniquifier> {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+
+:root{
+
+    /*Definido as variáveis para fontes */
+    --fonte-primaria:"Fredoka",sans-serif;
+
+    /*Definindo as variáveis para cores */
+    --primary-color: #2C5DBF;
+    --secondary-color: #3C578C;
+    --text-color: #384359;
+    
+    /*Definindo as variáveis para tamanhos*/
+    --fonte-size-base: 16px;
+    --heading-font-size: 2em;
+    --paragrafo-espaçamento: 1.5em;
+}
+
+body{
+    font-family:var(--fonte-primaria)
+}
+
+.navbar{
+
+    background-color: #2C5DBF;
+    font-size: 16px;
+    border-radius: 0;
+    width: 100%;
+    margin:0;
+}
+
+.nav-link{
+    color: white;
+}
