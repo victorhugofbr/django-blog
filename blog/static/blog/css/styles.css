@@ -40,6 +40,11 @@ body{
     margin:0;
 }
 
+
+.navbar-brand {
+    padding: 10px; /* Adiciona 10px de padding ao redor do link inteiro */
+}
+
 .nav-link{
     color: white;
 }
